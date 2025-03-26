@@ -17,14 +17,15 @@ class ProductController {
     }
 
     @GetMapping
-    PagedResult <Product> getProducts(@RequestParam(name = "page", defaultValue = "1") int page){
+    PagedResult<Product> getProducts(@RequestParam(name = "page", defaultValue = "1") int page) {
         return productService.getProducts(page);
     }
 
     @GetMapping("/{code}")
-    public ResponseEntity<Product> getProductByCode(@PathVariable String code){
-        return productService.getProdcutByCode(code)
+    public ResponseEntity<Product> getProductByCode(@PathVariable String code) {
+        return productService
+                .getProdcutByCode(code)
                 .map(ResponseEntity::ok)
-                .orElseThrow(()-> ProductNotFoundException.forCode(code));
+                .orElseThrow(() -> ProductNotFoundException.forCode(code));
     }
 }

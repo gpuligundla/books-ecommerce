@@ -1,17 +1,13 @@
 package com.geethakrishna.catalog_service.domain;
 
-import com.fasterxml.jackson.annotation.OptBoolean;
 import com.geethakrishna.catalog_service.ApplicationProperties;
+import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.swing.text.html.Option;
-import java.util.Optional;
-
 
 @Service
 @Transactional
@@ -24,12 +20,11 @@ public class ProductService {
         this.applicationProperties = applicationProperties;
     }
 
-    public PagedResult<Product> getProducts(int pageNo){
+    public PagedResult<Product> getProducts(int pageNo) {
         Sort sort = Sort.by("name").ascending();
-        pageNo = pageNo <=0 ? 0: pageNo - 1;
+        pageNo = pageNo <= 0 ? 0 : pageNo - 1;
         Pageable pageable = PageRequest.of(pageNo, applicationProperties.pageSize());
-        Page<Product> productsPage = productRepository.findAll(pageable)
-                .map(ProductMapper::toProduct);
+        Page<Product> productsPage = productRepository.findAll(pageable).map(ProductMapper::toProduct);
 
         return new PagedResult<>(
                 productsPage.getContent(),
@@ -39,11 +34,10 @@ public class ProductService {
                 productsPage.isFirst(),
                 productsPage.isLast(),
                 productsPage.hasNext(),
-                productsPage.hasPrevious()
-        );
+                productsPage.hasPrevious());
     }
 
-    public Optional<Product> getProdcutByCode(String code){
+    public Optional<Product> getProdcutByCode(String code) {
         return productRepository.findByCode(code).map(ProductMapper::toProduct);
     }
 }

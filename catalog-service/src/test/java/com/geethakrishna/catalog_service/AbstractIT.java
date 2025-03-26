@@ -13,7 +13,7 @@ public abstract class AbstractIT {
     int port;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         System.out.println(port);
         RestAssured.baseURI = "http://localhost";
         RestAssured.port = port;
