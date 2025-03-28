@@ -18,4 +18,5 @@ public abstract class AbstractIT {
         RestAssured.baseURI = "http://localhost";
         RestAssured.port = port;
     }
+
 }
