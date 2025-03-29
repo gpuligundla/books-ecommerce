@@ -41,7 +41,7 @@ class OrderControllerUnitTests {
 
     @BeforeEach
     void setUp() {
-        given(securityService.getLoginUserName()).willReturn("siva");
+        given(securityService.getLoginUserName()).willReturn("gk");
     }
 
     @ParameterizedTest(name = "[{index}]-{0}")
