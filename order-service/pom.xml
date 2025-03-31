@@ -8,7 +8,7 @@
 		<version>3.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.gk</groupId>
+	<groupId>com.geethakrishna</groupId>
 	<artifactId>order-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>order-service</name>
@@ -28,7 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
-		<dockerImageName>geethakrishna/book-ecommerce-${project.artifactId}</dockerImageName>
+		<dockerImageName>geethakrishna/books-ecommerce-${project.artifactId}</dockerImageName>
 	</properties>
 	<dependencies>
 		<dependency>
